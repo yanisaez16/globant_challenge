@@ -12,7 +12,7 @@ Since I couldn't insert the data in Section 1, I did this. First, I created a bu
 	+ jobs.csv
 
 Second, I created the instance in GCP with the following description:
-	```
+	
 	connectionName: challenge-de:southamerica-west1:my-database
 	createTime: '2025-03-05T21:12:44.766Z'
 	databaseVersion: POSTGRES_16
@@ -27,7 +27,7 @@ Second, I created the instance in GCP with the following description:
 	name: my-database
 	project: challenge-de
 	region: southamerica-west1
-	```
+	
 
 After the instance was created, I had to create three tables for each file, and I used the following queries:
 
