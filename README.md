@@ -29,7 +29,10 @@ Second, I created the instance in GCP with the following description:
 	name: my-database
 	project: challenge-de
 	region: southamerica-west1
-	
+
+ 
+	<img width="954" alt="instancia" src="https://github.com/user-attachments/assets/82787f91-41c7-4c6f-b80a-2cbcdbc54f83" />
+
 
 After the instance was created, I had to create three tables for each file, and I used the following queries:
 
@@ -74,11 +77,22 @@ Then, I populated the tables in Cloud SQL for each table with this command:
 	* For departments:
 		gcloud sql import csv my-database gs://files-challenge/departments.csv \
 		  --database=postgres --table=departments --columns="id,department"
+    
+	<img width="907" alt="departments" src="https://github.com/user-attachments/assets/992bf4d4-82f4-4090-9ecf-97e91faea6d1" />
+
+     
 	*For hired_employees:
 		gcloud sql import csv my-database gs://files-challenge/hired_employees.csv \
 		  --database=postgres --table=hired_employees --columns="id,name,datetime,department_id,job_id"
+    
+	<img width="923" alt="hired_employees" src="https://github.com/user-attachments/assets/ce5647e0-69ee-4548-9a48-74efb16ab49a" />
+
+    	
 	*For jobs:
 		gcloud sql import csv my-database gs://files-challenge/jobs.csv \
 		  --database=postgres --table=jobs --columns="id,job"
+
+    	<img width="916" alt="jobs" src="https://github.com/user-attachments/assets/89d45744-32f7-4245-9af1-6bcb783db8f9" />
+
 
 
