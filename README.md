@@ -7,9 +7,9 @@ First, due to time constraints, I was only able to finish Section 2. However, I 
 ## Development Section 2
 
 Since I couldn't insert the data in Section 1, I did this. First, I created a bucket named files-challenge where I uploaded the three files:
-	- departments.csv
-	- hired_employees.csv
-	- jobs.csv
+	* departments.csv
+	* hired_employees.csv
+	* jobs.csv
 
 Second, I created the instance in GCP with the following description:
 	
