@@ -57,11 +57,14 @@ After the instance was created, I had to create three tables for each file, and 
 		);
 
 After that, I modified the IAM policy of the bucket in GCP, with this command:
-
+```
 gsutil iam ch serviceAccount:p125245851199-txxhzb@gcp-sa-cloud-sql.iam.gserviceaccount.com:objectViewer gs://files-challenge
+```
 
 I check if the bucket has the necessary permissions with this command:
+```
 gsutil iam get gs://files-challenge
+```
 
 Then, I populated the tables in Cloud SQL for each table with this command:
 
