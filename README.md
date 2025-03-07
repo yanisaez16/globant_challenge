@@ -57,32 +57,23 @@ After the instance was created, I had to create three tables for each file, and 
 		);
 
 After that, I modified the IAM policy of the bucket in GCP, with this command:
-```
+
 gsutil iam ch serviceAccount:p125245851199-txxhzb@gcp-sa-cloud-sql.iam.gserviceaccount.com:objectViewer gs://files-challenge
-```
 
 I check if the bucket has the necessary permissions with this command:
-```
 gsutil iam get gs://files-challenge
-```
 
 Then, I populated the tables in Cloud SQL for each table with this command:
 
 
 	* For departments:
-		```
 		gcloud sql import csv my-database gs://files-challenge/departments.csv \
 		  --database=postgres --table=departments --columns="id,department"
-		```
 	*For hired_employees:
-		```
 		gcloud sql import csv my-database gs://files-challenge/hired_employees.csv \
 		  --database=postgres --table=hired_employees --columns="id,name,datetime,department_id,job_id"
-		```
 	*For jobs:
-		```
 		gcloud sql import csv my-database gs://files-challenge/jobs.csv \
 		  --database=postgres --table=jobs --columns="id,job"
-		```
 
 
