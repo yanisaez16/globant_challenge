@@ -73,26 +73,29 @@ gsutil iam get gs://files-challenge
 
 Then, I populated the tables in Cloud SQL for each table with this command:
 
-
+	
 	* For departments:
 		gcloud sql import csv my-database gs://files-challenge/departments.csv \
 		  --database=postgres --table=departments --columns="id,department"
-    
-	<img width="907" alt="departments" src="https://github.com/user-attachments/assets/992bf4d4-82f4-4090-9ecf-97e91faea6d1" />
-
-     
+    	
 	*For hired_employees:
 		gcloud sql import csv my-database gs://files-challenge/hired_employees.csv \
 		  --database=postgres --table=hired_employees --columns="id,name,datetime,department_id,job_id"
-    
-	<img width="923" alt="hired_employees" src="https://github.com/user-attachments/assets/ce5647e0-69ee-4548-9a48-74efb16ab49a" />
-
-    	
-	*For jobs:
+    	*For jobs:
 		gcloud sql import csv my-database gs://files-challenge/jobs.csv \
 		  --database=postgres --table=jobs --columns="id,job"
+    For each table, it is now populated, and here is the evidence:
 
-    	<img width="916" alt="jobs" src="https://github.com/user-attachments/assets/89d45744-32f7-4245-9af1-6bcb783db8f9" />
+For each table, it is now populated, and here is the evidence:
+* Departments:
+<img width="907" alt="departments" src="https://github.com/user-attachments/assets/e81cddcc-2903-43e5-b993-1ff7d762b39a" />
+
+* Hired_Employees:
+<img width="923" alt="hired_employees" src="https://github.com/user-attachments/assets/8552721e-6978-49c0-8c45-d2041f632eb3" />
+
+* Jobs:
+<img width="916" alt="jobs" src="https://github.com/user-attachments/assets/06907411-7ce2-4421-8150-8d1cfadeab2c" />
 
 
+  
 
