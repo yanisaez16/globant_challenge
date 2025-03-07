@@ -6,6 +6,7 @@ First, due to time constraints, I was only able to finish Section 2. However, I 
 
 ## Development Section 2
 
+### Insert Data 
 Since I couldn't insert the data in Section 1, I did this. First, I created a bucket named files-challenge where I uploaded the three files:
 ```
 	* departments.csv
@@ -95,6 +96,10 @@ For each table, it is now populated, and here is the evidence:
 
 * Jobs:
 <img width="916" alt="jobs" src="https://github.com/user-attachments/assets/06907411-7ce2-4421-8150-8d1cfadeab2c" />
+
+### Requirements
+
+#### Paso 1
 
 
   
