@@ -1,4 +1,5 @@
-# globant_challenge
+# Globant Challenge
+### Yanira Sáez
 ## Introduction
 I completed Section 2. In this document, I will explain what I did, why I did it that way, and provide all the steps you need to follow to achieve the same results, including which files to use.
 
@@ -32,7 +33,8 @@ Second, I created the instance in GCP with the following description:
 	region: southamerica-west1
 
  
-	<img width="954" alt="instancia" src="https://github.com/user-attachments/assets/82787f91-41c7-4c6f-b80a-2cbcdbc54f83" />
+
+<img width="954" alt="instancia" src="https://github.com/user-attachments/assets/82787f91-41c7-4c6f-b80a-2cbcdbc54f83" />
 
 
 After the instance was created, I had to create three tables for each file, and I used the following queries:
@@ -181,7 +183,7 @@ When I was developing the challenge I had some obstacles like:
 I couldn't solve a problem with Cloud Run. Even after modifying the timeout variable and checking the zone and port, the error persisted, and here is the error:
    ![error](https://github.com/user-attachments/assets/31f0fd59-1c33-4c40-a68c-2ec3d7a03cba)
 
-I tried to create a container with a Dockerfile and an app that would take the files, upload them to GCS, and then create and populate the tables. However, I couldn't figure it out in time.
+I tried to create a function and also a container with a Dockerfile and an app that would take the files, upload them to GCS, and then create and populate the tables. However, I couldn't figure it out in time.
 
 Additionally, the error with Cloud Run persisted even after checking the permissions. So, I decided to connect to Cloud SQL locally and retrieve the data through the endpoints to at least provide a working solution.
 
@@ -190,7 +192,27 @@ I also tried to create and populate the tables by connecting locally to GCP, but
 So, with the time available, I had to solve Section 2 of the challenge as shown above.
 
 
+## Development Section 1 and 2 (with more time)
 
+If I had more time, I could have completed the challenge like this:
 
+First, I would create a bucket in Cloud Storage to store the CSV files that will be uploaded through the API.
+
+Second, I would use Cloud Run to host the API and containerize the FastAPI application for deployment, allowing it to handle automatic scaling. Using a Dockerfile to containerize the application and install all dependencies. Also, I would check that Cloud Run has the right permissions to interact with the other GCP services.
+
+Third, I would create a PostgreSQL instance in Cloud SQL and use SQLAlchemy to interact with it. Additionally, after processing the CSV files from Cloud Storage, the API would insert the data into Cloud SQL.
+
+Fourth, use Dataflow when a CSV file is uploaded through the API, it can be parsed and stored in Cloud Storage. Once the CSV file is successfully uploaded, the API will process the file, extract the relevant data, and insert it into Cloud SQL. For batch insertions, the API will accept data in bulk (up to 1000 rows) and insert it into the Cloud SQL database in one go.
+
+Fifth, for the automated tests, I will add unit tests and API tests for uploading files, inserting data, and querying metrics. I will use pytest for testing and mock Cloud Storage and Cloud SQL interactions to isolate the tests. These tests will be run in the CI/CD pipeline before deploying to Cloud Run.
+
+I chose GCP because the role I applied for is Data Engineer GCP, so I think it's more reasonable given the potential needs of the clients.
+
+Finally, here are the benefits of using this architecture:
+
+1) Scalability to process different data volumes according to API requests, efficiently managing data load and database queries.
+2) Flexibility to adjust each service according to business needs, whether by adding more steps to the pipelines or updating the container to access additional features.
+3) Cost efficiency, as you only pay for what you actually use.
+4) The services are managed, which allows us to focus more on the business and its needs to achieve greater value through the application.
 
 
