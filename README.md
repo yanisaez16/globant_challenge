@@ -175,3 +175,22 @@ Here are the images of each requirement as evidence:
   <img width="959" alt="list_employees_depto_2021" src="https://github.com/user-attachments/assets/74bccd69-c807-4819-82d3-39be11fd0948" />
 
 
+## Obstacles during the challenge
+
+When I was developing the challenge I had some obstacles like:
+I couldn't solve a problem with Cloud Run. Even after modifying the timeout variable and checking the zone and port, the error persisted, and here is the error:
+   ![error](https://github.com/user-attachments/assets/31f0fd59-1c33-4c40-a68c-2ec3d7a03cba)
+
+I tried to create a container with a Dockerfile and an app that would take the files, upload them to GCS, and then create and populate the tables. However, I couldn't figure it out in time.
+
+Additionally, the error with Cloud Run persisted even after checking the permissions. So, I decided to connect to Cloud SQL locally and retrieve the data through the endpoints to at least provide a working solution.
+
+I also tried to create and populate the tables by connecting locally to GCP, but I was only able to create the tables, and they remained empty.
+
+So, with the time available, I had to solve Section 2 of the challenge as shown above.
+
+
+
+
+
+
