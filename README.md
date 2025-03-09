@@ -99,8 +99,79 @@ For each table, it is now populated, and here is the evidence:
 
 ### Requirements
 
-#### Paso 1
+The stakeholders ask for some specific metrics they need. So I have to create an end-point for each requirement and I did it with this steps:
+
+#### Step 1:
+I logged in with my credentials so that I wouldn’t have to enter them again later. However, a good practice is to access using a .json file containing the credentials but I didn't because of time. I used this command:
+```
+gcloud auth login
+```
+
+#### Step 2: 
+I configure it to set my GCP project with this command:
+```
+gcloud config set project challenge-de
+```
+
+#### Step 3:
+I enabled the permissions to work with these services using this command:
+
+```
+gcloud services enable sqladmin.googleapis.com
+```
+
+#### Step 4:
+I had to install this connector to connect to Cloud SQL. I used this repository: https://github.com/GoogleCloudPlatform/cloud-sql-python-connector, with this command:
+```
+pip install "cloud-sql-python-connector[pg8000]"
+```
+
+#### Step 5:
+I set the environment variables.
+```
+set INSTANCE_CONNECTION_NAME=challenge-de:southamerica-west1:my-database
+set DB_USER=postgres
+set DB_PASSWORD=dominga01
+set DB_NAME=postgres
+```
+
+#### Step 6:
+I tested the environment variables using the code in the file test_env.py.
+```
+python test_env.py
+```
+
+#### Step 7:
+I tested the connection to the instance using the code in the conn_test.py file.
+```
+python conn_test.py
+```
 
 
-  
+#### Step 8:
+I executed the main app's code with this command:
+```
+python -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+#### Step 9:
+I visualized the endpoints by checking these URLs:
+
+http://127.0.0.1:8000/employees-by-quarter
+
+http://127.0.0.1:8000/departments-above-average
+
+
+Here are the images of each requirement as evidence:
+
+1) Number of employees hired for each job and department in 2021 divided by quarter. The table must be ordered alphabetically by department and job.
+
+<img width="956" alt="number_employees_2021" src="https://github.com/user-attachments/assets/abea8bf0-d53f-473f-9a23-78c53f2faa5a" />
+
+
+2) List of ids, name and number of employees hired of each department that hired more employees than the mean of employees hired in 2021 for all the departments, ordered by the number of employees hired (descending).
+
+ 
+  <img width="959" alt="list_employees_depto_2021" src="https://github.com/user-attachments/assets/74bccd69-c807-4819-82d3-39be11fd0948" />
+
 
